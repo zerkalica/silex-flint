@@ -1,0 +1,29 @@
+{
+    "name": "fabpot/silex-skeleton",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.3",
+        "silex/silex": "1.0.*@dev",
+        "symfony/process": "~2.2",
+        "symfony/monolog-bridge": "~2.2",
+        "phing/phing": "2.5.*",
+        "lukegb/jade.php": "dev-master",
+        "vlucas/valitron": "dev-master",
+        "devco/trilogy": "dev-master",
+        "doctrine/cache": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "repositories": {
+        "lukegb/jade.php": {
+           "type": "git",
+           "url": "git@github.com:zerkalica/jade.php.git"
+        }
+    }
+}
