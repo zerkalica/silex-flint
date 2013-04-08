@@ -3,5 +3,5 @@
     'debug' => true,
     'db'    => parse_ini_file(__DIR__ . '/db/loc.ini'),
 
-    'monolog.level' => \Monolog\Logger::INFO,
+    'monolog.level' => \Monolog\Logger::WARNING,
 ]);

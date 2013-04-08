@@ -23,11 +23,11 @@ class JadeEngine implements TemplateEngineInterface
 
     public function render($template, array $data = array())
     {
-        if (null === $this->cacheData) {
-            //if (!file_exists($this->templatesFile)) {
+        if (!$this->cacheData) {
+            if (!file_exists($this->templatesFile)) {
                 $this->cache();
-            //}
-            $this->cacheData = require $this->templatesFile;
+            }
+            $this->cacheData = include($this->templatesFile);
         }
 
         ob_start();
@@ -49,22 +49,29 @@ class JadeEngine implements TemplateEngineInterface
         if (!is_dir($dir)) {
             mkdir($dir, 0777, true);
         }
-        $cache = '';
+        $content = '';
         foreach ($this->directories as $path) {
             foreach (new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path)) as $file) {
                 /* @var $file \SplFileInfo */
                 if ($file->isFile() && $file->getExtension() === $this->ext) {
-                    $content = $this->compile($file->getPathname());
                     $prefix = substr($file->getPath(), strlen($path));
                     if ($prefix) {
                         $prefix .= DIRECTORY_SEPARATOR;
                     }
                     $key = $prefix . substr($file->getFilename(), 0, -strlen($file->getExtension()) - 1);
-                    $cache .= PHP_EOL . '\'' . $key . '\' => function($v) { return \'' . PHP_EOL . $content . PHP_EOL . '\';},';
+                    if ($key[0] === DIRECTORY_SEPARATOR) {
+                        $key = substr($key, 1);
+                    }
+                    $content .= PHP_EOL
+                        . '\'' . $key . '\' => function($data) { extract($data); ?>'
+                        . PHP_EOL . $this->compile($file->getPathname())
+                        . PHP_EOL . '<?php },';
                 }
             }
         }
-        $cache = '<?php return array(' . $cache . PHP_EOL . ');';
-        file_put_contents($this->templatesFile, $cache);
+
+        $content ='<?php return array(' . $content . ');?>';
+
+        file_put_contents($this->templatesFile, $content);
     }
 }

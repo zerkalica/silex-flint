@@ -23,28 +23,36 @@ return function ($env = null) {
 
     if (!empty($config['debug'])) {
         error_reporting(E_ALL | E_NOTICE | E_WARNING | E_STRICT);
+        if ('cli' !== php_sapi_name()) {
+            ExceptionHandler::register($config['debug']);
+        }
         //DebugClassLoader::enable();
         ErrorHandler::register();
-        if ('cli' !== php_sapi_name()) {
-            $handler = new ExceptionHandler(true);
-            set_exception_handler(function (\Exception $exception) use ($handler) {
-                $handler->handle($exception);
-            });
-        }
     }
 
-    foreach($app['providers'] as $providerClass) {
+    $providers   = $config['providers'];
+    $controllers = $config['resources'];
+    $includes    = $config['includes'];
+    unset($config['providers'], $config['resources'], $config['includes']);
+
+    foreach($providers as $providerClass) {
         $provider = new $providerClass;
-        $app->register($provider);
+        $app->register($provider, $config);
+    }
+
+    foreach($controllers as $prefix => $controllerClass) {
+        $controller = new $controllerClass;
+        $app->mount($prefix, $controller);
     }
 
     $loadModule = function ($module) use ($app) {
         return require_once __DIR__ . '/../src/' . str_replace('\\', DIRECTORY_SEPARATOR, $module) . '.php';
     };
 
-    foreach ($app['includes'] as $module) {
+    foreach ($includes as $module) {
         $loadModule($module);
     }
+
 
     return $app;
 };

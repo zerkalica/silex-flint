@@ -12,16 +12,22 @@
         'Flint\Provider\RestifyServiceProvider',
     ],
 
-    'includes' => [
-        'Homepage',
+    'resources' => [
+        'users/' => 'Examples\User',
     ],
 
+    'includes' => [
+        'Examples\Homepage'
+    ],
+
+    'restify.layout' => 'layout',
+
     'template.cache.path' => __DIR__ . '/../cache/templates',
-    'template.layout'     => 'layout',
     'template.directories' => [
         __DIR__ . '/../templates'
     ],
 
     'monolog.logfile' => __DIR__ . '/../logs/silex_' . $env . '.log',
     'monolog.level' => \Monolog\Logger::WARNING,
+    'monolog.name' => 'boombate.fep2'
 ];

@@ -383,12 +383,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Silex.git",
-                "reference": "31139babedb2a4f504737d1d8c5255fca102dae2"
+                "reference": "80f0abd669b2c615b73065b76c63ff27c7d3c38d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Silex/zipball/31139babedb2a4f504737d1d8c5255fca102dae2",
-                "reference": "31139babedb2a4f504737d1d8c5255fca102dae2",
+                "url": "https://api.github.com/repos/fabpot/Silex/zipball/80f0abd669b2c615b73065b76c63ff27c7d3c38d",
+                "reference": "80f0abd669b2c615b73065b76c63ff27c7d3c38d",
                 "shasum": ""
             },
             "require": {
@@ -401,6 +401,7 @@
             },
             "require-dev": {
                 "doctrine/dbal": ">=2.2.0,<2.4.0-dev",
+                "monolog/monolog": ">=1.4,<2.0,>=1.4.1",
                 "swiftmailer/swiftmailer": "4.2.*",
                 "symfony/browser-kit": ">=2.1,<2.3-dev",
                 "symfony/config": ">=2.1,<2.3-dev",
@@ -456,7 +457,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-04-03 19:59:11"
+            "time": "2013-04-08 20:37:52"
         },
         {
             "name": "symfony/event-dispatcher",
