@@ -2,7 +2,7 @@
 use Silex\Application;
 $app->get('/', function (Application $app) {
     return [
-        '_template' => 'homepage',
+        '_template' => 'examples/homepage',
         'name' => 'word',
     ];
 });
