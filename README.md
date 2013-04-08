@@ -1,0 +1,4 @@
+silex-flint
+===========
+
+Silex boilerplate
