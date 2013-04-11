@@ -58,7 +58,7 @@ class JadeEngine implements TemplateEngineInterface
                     if ($prefix) {
                         $prefix .= DIRECTORY_SEPARATOR;
                     }
-                    $key = $prefix . substr($file->getFilename(), 0, -strlen($file->getExtension()) - 1);
+                    $key = str_replace('\\', '/', $prefix . substr($file->getFilename(), 0, -strlen($file->getExtension()) - 1));
                     if ($key[0] === DIRECTORY_SEPARATOR) {
                         $key = substr($key, 1);
                     }

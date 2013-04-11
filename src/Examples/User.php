@@ -20,6 +20,7 @@ class User implements ControllerProviderInterface
             ];
         })
             ->assert('userId', '\d+')
+            ->assert('json', '.*')
             ->value('json', '');
 
         return $controllers;
