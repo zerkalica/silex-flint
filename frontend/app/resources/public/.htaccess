@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.html [QSA,L]
+</IfModule>
+<Limit GET HEAD POST PUT DELETE OPTIONS>
+   Order Allow,Deny
+   Allow from all
+</Limit>

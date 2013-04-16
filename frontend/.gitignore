@@ -1,0 +1,6 @@
+.grunt
+build
+node_modules
+vendor/bower
+npm*.log
+src/app.config.js

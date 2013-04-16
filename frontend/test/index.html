@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css"/>
+    <script type="text/javascript" src="../node_modules/requirejs/require.js" data-main="../src/require.config.js"></script>
+    <script>
+        var assert,
+            should,
+            expect;
+        require(['../test/' + 'SpecRunner'], function(SpecRunner) {
+            assert = SpecRunner.chai.assert;
+            should = SpecRunner.chai.should();
+            expect = SpecRunner.chai.expect;
+
+            require(SpecRunner.specs, function () {
+                //require('../node_modules/phantomjs/bridge', function() {
+                    SpecRunner.mocha.run();
+                //});
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="mocha"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "boombate.admin",
+  "version": "1.1.0",
+  "targetDir": "vendor/bower",
+  "dependencies": {
+    "requirejs": "2.1.x",
+    "require-jade": "0.0.x",
+    "jquery": "1.9.x",
+    "blockui": "2.55.x",
+    "pickadate": "2.1.x",
+    "underscore": "1.4.x",
+    "backbone": "1.0.x",
+    "backbone-relational": "0.8.x",
+    "backbone.babysitter": "0.0.x",
+    "backbone.wreqr": "0.2.x",
+    "Backbone.ModelBinder": "1.0.x",
+    "marionette": "1.0.x"
+  },
+  "exportsOverride": {
+    "backbone": {
+      ".": "backbone.js"
+    },
+    "requirejs": {
+      ".": "require.js"
+    },
+    "jquery": {
+      ".": "jquery.js"
+    },
+    "underscore": {
+      ".": "underscore.js"
+    }
+  }
+}

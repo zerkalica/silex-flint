@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title><!-- @echo NAME --> v<!-- @echo VERSION -->-<!-- @echo ENV --></title>
+    <link rel="stylesheet" href="css/styles.<!-- @echo VERSION -->.<!-- @echo ENV -->.css">
+    <!-- @if ENV == 'prod' -->
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"></script>
+    <!-- @endif -->
+</head>
+
+<body>
+<div id="jsHeader" class="bBBHeader"></div>
+<div id="jsMainContent" class="bBBAdmin">-</div>
+<div class="jsFallbackErrors"></div>
+<div id="jsIndicator" class="jsbIndicator"></div>
+<div id="jsMessages"></div>
+<!-- @if DEBUG -->
+<script src="vendor/bower/requirejs/require.js" data-main="src/require.config.js"></script>
+<!-- @endif -->
+<!-- @if !DEBUG -->
+<script src="js/core.<!-- @echo VERSION -->.<!-- @echo ENV -->.js"></script>
+<!-- @endif -->
+<script>
+    require(["main"]);
+</script>
+</body>
+</html>
