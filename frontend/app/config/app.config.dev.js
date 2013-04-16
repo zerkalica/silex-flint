@@ -10,7 +10,7 @@ define([], function () {
             loginUrl: ''
         },
         correspondence: {
-            url: 'http://test1.boombate.com/admin_correspondence/create_initial_correspondence'
+            url: ''
         }
     };
 });
