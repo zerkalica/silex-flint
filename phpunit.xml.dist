@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- http://www.phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        colors="false"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        processIsolation="false"
+        stopOnError="true"
+        stopOnFailure="true"
+        syntaxCheck="false"
+        bootstrap="app/bootstrap.php">
+
+    <php>
+        <server name="KERNEL_DIR" value="app" />
+        <server name="ENVIRONMENT" value="test" />
+    </php>
+
+    <logging>
+        <log type="coverage-html" target="build/coverage" charset="UTF-8"
+             yui="true" highlight="true"
+             lowUpperBound="50" highLowerBound="80"/>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
+    </logging>
+
+    <testsuites>
+        <testsuite name="Functional">
+            <directory>test/functional/*</directory>
+        </testsuite>
+        <testsuite name="Unit">
+            <directory>test/unit/*</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="false">
+            <directory suffix=".php">src/*/*/Event</directory>
+            <directory suffix=".php">src/*/*/Command</directory>
+            <directory suffix=".php">src/*/*/Query</directory>
+            <directory suffix=".php">src/*/*/Model</directory>
+        </whitelist>
+    </filter>
+</phpunit>
