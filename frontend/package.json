@@ -36,7 +36,7 @@
     },
     "main": "src/main.js",
     "scripts": {
-        "install": "grunt clean dev",
+        "install": "grunt bower:install clean dev",
         "test": "grunt clean prepare test"
     }
 }

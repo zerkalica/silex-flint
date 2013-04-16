@@ -290,6 +290,9 @@ module.exports = function (grunt) {
         },
         bower: {
             install: {
+               options: { 
+                   targetDir: 'vendor/bower'
+               }
             }
         }
     });

@@ -1,6 +1,6 @@
 {
-  "name": "boombate.admin",
-  "version": "1.1.0",
+  "name": "flint.front",
+  "version": "1.1.1",
   "targetDir": "vendor/bower",
   "dependencies": {
     "requirejs": "2.1.x",

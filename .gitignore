@@ -6,6 +6,7 @@ vendor/*
 #composer.phar
 */logs/*
 */cache/*
+web/frontend
 web/app.php
 web/images/*
 web/files
