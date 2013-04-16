@@ -10,7 +10,7 @@ module.exports = function (grunt) {
         buildDir: 'build',
         testDir: 'test',
         srcDir: '.',
-        resourcesDir: 'app/resources/public',
+        resourcesDir: 'app/resources/web',
         version: '<%= grunt.template.today("yyyymmddhhMM") %>',
 
         requirejs: {
